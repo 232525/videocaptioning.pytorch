@@ -51,7 +51,7 @@ Some code refers to [ImageCaptioning.pytorch](https://github.com/yunjey/pytorch-
 
 ## Usage
 
-### (Optional) c3d features
+### (Optional) c3d features (not verified)
 you can use [video-classification-3d-cnn-pytorch](https://github.com/kenshohara/video-classification-3d-cnn-pytorch) to extract features from video. 
 
 ### Steps
@@ -63,16 +63,38 @@ refer to `data/msvd-data/annotations/prepro_annotations.ipynb`
 
 ```bash
 # For MSR-VTT dataset
-CUDA_VISIBLE_DEVICES=0 python prepro_feats.py --video_path ./data/msr-vtt-data/train-video --output_dir ./data/msr-vtt-data/resnet152 --model resnet152 --n_frame_steps 40
+# Train and Validata set
+CUDA_VISIBLE_DEVICES=0 python prepro_feats.py \
+    --video_path ./data/msr-vtt-data/train-video \
+    --output_dir ./data/msr-vtt-data/resnet152 \
+    --model resnet152 \
+    --n_frame_steps 40
 
-CUDA_VISIBLE_DEVICES=0 python prepro_feats.py --video_path ./data/msr-vtt-data/test-video --output_dir ./data/msr-vtt-data/resnet152 --model resnet152 --n_frame_steps 40
+# Test set
+CUDA_VISIBLE_DEVICES=0 python prepro_feats.py \
+    --video_path ./data/msr-vtt-data/test-video \
+    --output_dir ./data/msr-vtt-data/resnet152 \
+    --model resnet152 \
+    --n_frame_steps 40
 
-python prepro_vocab.py --input_json data/msr-vtt-data/annotations/train_val_videodatainfo.json data/msr-vtt-data/annotations/test_videodatainfo.json --info_json data/msr-vtt-data/info.json --caption_json data/msr-vtt-data/caption.json --word_count_threshold 4
+python prepro_vocab.py \
+    --input_json data/msr-vtt-data/annotations/train_val_videodatainfo.json data/msr-vtt-data/annotations/test_videodatainfo.json \
+    --info_json data/msr-vtt-data/info.json \
+    --caption_json data/msr-vtt-data/caption.json \
+    --word_count_threshold 4
 
 # For MSVD dataset
-CUDA_VISIBLE_DEVICES=0 python prepro_feats.py --video_path ./data/msvd-data/YouTubeClips --output_dir ./data/msvd-data/resnet152 --model resnet152 --n_frame_steps 40
+CUDA_VISIBLE_DEVICES=0 python prepro_feats.py \
+    --video_path ./data/msvd-data/YouTubeClips \
+    --output_dir ./data/msvd-data/resnet152 \
+    --model resnet152 \
+    --n_frame_steps 40
 
-python prepro_vocab.py --input_json data/msvd-data/annotations/MSVD_annotations.json --info_json data/msvd-data/info.json --caption_json data/msvd-data/caption.json --word_count_threshold 2
+python prepro_vocab.py \
+    --input_json data/msvd-data/annotations/MSVD_annotations.json \
+    --info_json data/msvd-data/info.json \
+    --caption_json data/msvd-data/caption.json \
+    --word_count_threshold 2
 ```
 
 2. Training a model
@@ -126,7 +148,7 @@ CUDA_VISIBLE_DEVICES=0 python eval.py \
 ```
 
 ## NOTE
-This code is just a simple implementation of video captioning
+This code is just a simple implementation of video captioning. And I have not verify whether the SCST training process and C3D feature are useful!
 
 
 ## Acknowledgements
