@@ -66,6 +66,7 @@ refer to `data/msvd-data/annotations/prepro_annotations.ipynb`
 # Train and Validata set
 CUDA_VISIBLE_DEVICES=0 python prepro_feats.py \
     --video_path ./data/msr-vtt-data/train-video \
+    --video_suffix mp4 \
     --output_dir ./data/msr-vtt-data/resnet152 \
     --model resnet152 \
     --n_frame_steps 40
@@ -73,6 +74,7 @@ CUDA_VISIBLE_DEVICES=0 python prepro_feats.py \
 # Test set
 CUDA_VISIBLE_DEVICES=0 python prepro_feats.py \
     --video_path ./data/msr-vtt-data/test-video \
+    --video_suffix mp4 \
     --output_dir ./data/msr-vtt-data/resnet152 \
     --model resnet152 \
     --n_frame_steps 40
@@ -86,6 +88,7 @@ python prepro_vocab.py \
 # For MSVD dataset
 CUDA_VISIBLE_DEVICES=0 python prepro_feats.py \
     --video_path ./data/msvd-data/YouTubeClips \
+    --video_suffix avi \
     --output_dir ./data/msvd-data/resnet152 \
     --model resnet152 \
     --n_frame_steps 40

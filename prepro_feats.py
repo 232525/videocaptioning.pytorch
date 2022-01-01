@@ -69,7 +69,7 @@ def extract_feats(params, model, load_image_fn):
         os.mkdir(dir_fc)
     print("save video feats to %s" % (dir_fc))
     # video_list = glob.glob(os.path.join(params['video_path'], '*.mp4'))
-    video_list = glob.glob(os.path.join(params['video_path'], '*.avi'))
+    video_list = glob.glob(os.path.join(params['video_path'], '*.' + video_suffix))
     for video in tqdm(video_list):
         video_id = video.split("/")[-1].split(".")[0]
         # dst = params['model'] + '_' + video_id
@@ -153,6 +153,9 @@ if __name__ == '__main__':
                         help='how many frames to sampler per video')
     parser.add_argument("--video_path", dest='video_path', type=str,
                         default='data/train-video', 
+                        help='path to video dataset')
+    parser.add_argument("--video_suffix", dest='video_suffix', type=str,
+                        default='mp4', 
                         help='path to video dataset')
     parser.add_argument("--model", dest="model", type=str, 
                         default='resnet152',
