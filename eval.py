@@ -7,7 +7,7 @@ from torch.autograd import Variable
 from torch.utils.data import DataLoader
 from models import EncoderRNN, DecoderRNN, S2VTAttModel, S2VTModel
 # from dataloader import VideoDataset
-from msrvtt_dataset import VideoDataset
+from video_dataset import VideoDataset
 import misc.utils as utils
 from misc.cocoeval import suppress_stdout_stderr, COCOScorer
 

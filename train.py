@@ -8,7 +8,7 @@ import torch
 import torch.optim as optim
 from torch.nn.utils import clip_grad_value_
 # from dataloader import VideoDataset
-from msrvtt_dataset import VideoDataset
+from video_dataset import VideoDataset
 from misc.rewards import get_self_critical_reward, init_cider_scorer
 from models import DecoderRNN, EncoderRNN, S2VTAttModel, S2VTModel
 from torch import nn

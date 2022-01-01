@@ -22,6 +22,7 @@ This code is based on [video-caption.pytorch](https://github.com/xiadingZ/video-
 
 [MSR-VTT](https://www.mediafire.com/folder/h14iarbs62e7p/shared). Download and put them in `./data/msr-vtt-data` directory
 
+```bash
 |-data
   |-msr-vtt-data
     |-train-video
@@ -29,14 +30,17 @@ This code is based on [video-caption.pytorch](https://github.com/xiadingZ/video-
     |-annotations
       |-train_val_videodatainfo.json
       |-test_videodatainfo.json
+```
 
 [MSVD](https://www.cs.utexas.edu/users/ml/clamp/videoDescription/). Download and put them in `./data/msvd-data` directory
 
+```bash
 |-data
   |-msvd-data
     |-YouTubeClips
     |-annotations
       |-AllVideoDescriptions.txt
+```
 
 ## Options
 
